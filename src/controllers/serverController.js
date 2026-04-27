@@ -5,6 +5,18 @@ const getAllServers = (req, res) => {
   res.json(servers);
 };
 
+const getServerById = (req, res) => {
+  const id = Number(req.params.id);
+
+  const server = servers.find(s => s.id === id);
+
+  if (!server) {
+    return res.status(404).json({ message: "Server not found" });
+  }
+
+  res.json(server);
+};
+
 const createServer = (req, res) => {
   const newServer = {
     id: servers.length + 1,

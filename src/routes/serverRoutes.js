@@ -5,6 +5,7 @@ const serverController = require("../controllers/serverController");
 
 router.get("/", serverController.getAllServers);
 router.post("/", serverController.createServer);
+router.get("/:id", serverController.getServerById);
 router.post("/:id/rent", serverController.rentServer);
 router.get("/:id/health", serverController.getServerHealth);
 
